@@ -1,7 +1,8 @@
 # hyperledger-fabric-bala
  Getting started with Hyperledger Fabric administration
 
- What's Bala?
+ What's bala?
+ 
 ![fabric-bala image](fabric-bala.jpg)
 
 Links
