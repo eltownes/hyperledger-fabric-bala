@@ -18,5 +18,5 @@
 - [Hyperledger Fabric docs - latest](https://hyperledger-fabric.readthedocs.io/en/latest/)
 - [Hyperledger Foundation Wiki](https://wiki.hyperledger.org/)
 - [IBM Blockchain docs](https://cloud.ibm.com/docs/blockchain)
-- [IBM Blockchain docs](https://cloud.ibm.com/docs/blockchain){:target="_blank"}
+- [IBM Blockchain docs](https://cloud.ibm.com/docs/blockchain target="_blank")
 - <a href="https://cloud.ibm.com/docs/blockchain" target="_blank">IBM Blockchain docs</a>
