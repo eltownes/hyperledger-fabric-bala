@@ -1,5 +1,5 @@
 # hyperledger-fabric-bala
-## Getting started with Hyperledger Fabric administration.
+## Getting started with Hyperledger Fabric administration
 
 ### What's bala?
 
@@ -15,7 +15,7 @@
 - Does not care how Hyperledger Fabric is implemented
 
 ### Links:
-* [Hyperledger Fabric docs - latest](https://hyperledger-fabric.readthedocs.io/en/latest/)
-* [Hyperledger Foundation Wiki](https://wiki.hyperledger.org/)
-* [IBM Blockchain docs](https://cloud.ibm.com/docs/blockchain)
-
+- [Hyperledger Fabric docs - latest](https://hyperledger-fabric.readthedocs.io/en/latest/)
+- [Hyperledger Foundation Wiki](https://wiki.hyperledger.org/)
+- [IBM Blockchain docs](https://cloud.ibm.com/docs/blockchain)
+- <a href="https://cloud.ibm.com/docs/blockchain" target="_blank">IBM Blockchain docs</a>
