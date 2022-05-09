@@ -16,14 +16,22 @@
 
 ### Prerequisites
 - install git and curl
-    - run `sudo apt install git & sudo apt install curl`
+    - run `sudo apt install git && sudo apt install curl`
 - navigate to a desired directory from which to work
 - clone repo
-    - run `git clone https://github.com/eltownes/hyperledger-fabric-bala/minifabric`
+    - run `git clone https://github.com/eltownes/hyperledger-fabric-bala.git`
+- navigate to minifabric folder
+- make script executable
+    run `chmod +x prereq-docker.sh`
 - install Docker
     - run `prereq-docker.sh`
 
 ## 3 of 3 - setup the minifabric environment
 
-[Minifabric GitHub - intro](https://github.com/hyperledger-labs/minifabric)
-[[Minifabric GitHub - tutorial](https://github.com/hyperledger-labs/minifabric/blob/main/docs/README.md)
+- Consult and follow the guide:
+    - [Minifabric GitHub - intro](https://github.com/hyperledger-labs/minifabric)
+    - [Minifabric GitHub - tutorial](https://github.com/hyperledger-labs/minifabric/blob/main/docs/README.md)
+- to add current directory to PATH
+    - export PATH=${PWD}:$PATH
+- 
+

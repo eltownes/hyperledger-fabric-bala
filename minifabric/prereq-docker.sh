@@ -1,6 +1,9 @@
 #!/bin/bash
 
+. utils.sh
+
 # update database
+infoln "# Updating local database"
 set -x ; sudo apt update
 set +x
 
@@ -14,11 +17,13 @@ DOCKER_LTS="5:20.10.14~3-0~ubuntu-focal"
 # https://docs.docker.com/engine/install/ubuntu/
 
 # removing any old[er] docker installs
+infoln "# Removing old docker installs"
 set -x ; sudo apt-get remove docker docker-engine docker.io containerd runc
 set +x
 
 # setup docker repo
 # install packages to allow apt to use a repository over HTTPS
+infoln "# Setting up docker repo"
 set -x ; sudo apt-get install \
             ca-certificates \
             curl \
@@ -27,10 +32,12 @@ set -x ; sudo apt-get install \
 set +x
 
 # adding Docker’s official GPG key
+infoln "# Adding docker PGP key"
 set -x ; curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 set +x
 
 # setting up stable directory
+infoln "# Setting up stable directory"
 set -x
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
@@ -38,6 +45,7 @@ echo \
 set +x
 
 # install docker engine
+infoln "# Installing docker engine"
 set -x
 # for the absolute latest:
 # sudo apt-get install docker-ce docker-ce-cli containerd.io -y
@@ -45,12 +53,17 @@ sudo apt-get install docker-ce=$DOCKER_LTS docker-ce-cli=$DOCKER_LTS containerd.
 set +x
 
 # add current user to the docker group
-set -x ; sudo usermod -aG docker $USERNAME
+infoln "# Adding current user to docker group"
+set -x ; 
+sudo usermod -aG docker $USERNAME
+newgrp docker
 set +x
 
 # versioning
-docker --version
+infoln "# Docker version"
+docker version
 
 # hello-world
-echo "should see the Docker Hello World app w/o sudo"
-docker run hello-world
+infoln "Should see the Docker 'hello-world' app without 'sudo'"
+set -x ; docker run hello-world
+set +x
