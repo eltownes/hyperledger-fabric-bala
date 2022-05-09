@@ -22,7 +22,7 @@
     - run `git clone https://github.com/eltownes/hyperledger-fabric-bala.git`
 - navigate to minifabric folder
 - make script executable
-    run `chmod +x prereq-docker.sh`
+    - run `chmod +x prereq-docker.sh`
 - install Docker
     - run `prereq-docker.sh`
 
@@ -33,5 +33,4 @@
     - [Minifabric GitHub - tutorial](https://github.com/hyperledger-labs/minifabric/blob/main/docs/README.md)
 - to add current directory to PATH
     - export PATH=${PWD}:$PATH
-- 
 

@@ -56,14 +56,13 @@ set +x
 infoln "# Adding current user to docker group"
 set -x ; 
 sudo usermod -aG docker $USERNAME
-newgrp docker
 set +x
 
 # versioning
 infoln "# Docker version"
 docker version
 
-# hello-world
-infoln "Should see the Docker 'hello-world' app without 'sudo'"
-set -x ; docker run hello-world
-set +x
+# set up sudo-less docker runs
+infoln "# Finish setting up Docker"
+infoln "# Need to probably run: 'newgrp docker'"
+infoln "# Should now be able to run: 'docker hello-world' without 'sudo'"
