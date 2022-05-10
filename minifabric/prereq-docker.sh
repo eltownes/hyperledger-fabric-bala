@@ -65,4 +65,4 @@ docker version
 # set up sudo-less docker runs
 infoln "# Finish setting up Docker"
 infoln "# Need to probably run: 'newgrp docker'"
-infoln "# Should now be able to run: 'docker hello-world' without 'sudo'"
+infoln "# Should now be able to run: 'docker run hello-world' without 'sudo'"

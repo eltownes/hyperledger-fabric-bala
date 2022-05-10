@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
+# ref: # https://www.shellhacks.com/bash-colors/
 C_RESET='\033[0m'
-C_RED='\033[0;31m'
-C_GREEN='\033[0;32m'
-C_BLUE='\033[0;34m'
-C_YELLOW='\033[1;33m'
-C_WHITE='\033[1;37m'
+C_RED='\033[4;31m'
+C_GREEN='\033[4;32m'
+C_YELLOW='\033[4;33m'
+C_BLUE='\033[4;34m'
+C_CYAN='\033[4;36m'
+C_WHITE='\033[4;37m'
 
 # println echos string
 function println() {
@@ -25,7 +26,7 @@ function successln() {
 
 # infoln echos in blue color
 function infoln() {
-  println "${C_WHITE}${1}${C_RESET}"
+  println "${C_CYAN}${1}${C_RESET}"
 }
 
 # warnln echos in yellow color
