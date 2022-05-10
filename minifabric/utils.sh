@@ -24,7 +24,7 @@ function successln() {
   println "${C_GREEN}${1}${C_RESET}"
 }
 
-# infoln echos in blue color
+# infoln echos in cyan color
 function infoln() {
   println "${C_CYAN}${1}${C_RESET}"
 }

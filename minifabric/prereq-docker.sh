@@ -58,11 +58,9 @@ set -x ;
 sudo usermod -aG docker $USERNAME
 set +x
 
-# versioning
-infoln "# Docker version"
-docker version
-
-# set up sudo-less docker runs
+# final setup
 infoln "# Finish setting up Docker"
 infoln "# Need to probably run: 'newgrp docker'"
 infoln "# Should now be able to run: 'docker run hello-world' without 'sudo'"
+infoln "# Also, run 'docker version'"
+

@@ -21,10 +21,12 @@
 - clone repo
     - run `git clone https://github.com/eltownes/hyperledger-fabric-bala.git`
 - navigate to minifabric folder
-- make script executable
-    - run `chmod +x prereq-docker.sh`
-- install Docker
-    - run `prereq-docker.sh`
+- make scripts executable
+    - run `chmod +x *.sh`
+- look at scripts to see what gets installed and make changes if necessary
+- install the prereq* scripts
+    - run `./prereq-basic.sh`
+    - etc
 
 ## 3 of 3 - setup the minifabric environment
 
@@ -33,4 +35,5 @@
     - [Minifabric GitHub - tutorial](https://github.com/hyperledger-labs/minifabric/blob/main/docs/README.md)
 - to add current directory to PATH
     - export PATH=${PWD}:$PATH
+- copy `spec.yaml` to minifab directory?
 
