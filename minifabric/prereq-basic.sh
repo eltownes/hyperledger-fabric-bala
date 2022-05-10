@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. utils.sh
+
 # update database
 infoln "# Updating local database"
 set -x ; sudo apt update
