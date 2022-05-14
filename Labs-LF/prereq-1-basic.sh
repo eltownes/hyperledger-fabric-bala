@@ -1,9 +1,6 @@
 #!/bin/bash
 
-. utils.sh
-
 # update database
-infoln "# Updating local database"
 set -x ; sudo apt update
 set +x
 
@@ -13,15 +10,15 @@ repoInstalls=("tmux" "tree")
 # loop through the array
 echo
 for i in ${repoInstalls[@]}; do
-   echo; infoln "# Installing $i"
+   echo; echo "***** Installing $i"
    set -x ; sudo apt install $i -y
    set +x
 done
 
-# report versioning
-echo ; infoln "# Versions" ; echo
+# versions
+echo; echo "***** Versions" ; echo
 for i in ${repoInstalls[@]}; do
-   infoln "$i"
+   echo; echo "***** $i"
    case $i in
       tmux)
          $i -V
@@ -30,5 +27,4 @@ for i in ${repoInstalls[@]}; do
          $i --version
          ;;
    esac
-   echo
 done
