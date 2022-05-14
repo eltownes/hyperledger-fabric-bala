@@ -33,7 +33,7 @@
 - Consult and follow the guide:
     - [Minifabric GitHub - intro](https://github.com/hyperledger-labs/minifabric)
     - [Minifabric GitHub - tutorial](https://github.com/hyperledger-labs/minifabric/blob/main/docs/README.md)
-- to add current directory to PATH
+- from the minifabric directory: add it to PATH
     - export PATH=${PWD}:$PATH
 - copy `spec.yaml` to minifab directory?
 

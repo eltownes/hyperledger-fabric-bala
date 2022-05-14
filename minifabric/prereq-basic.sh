@@ -8,7 +8,7 @@ set -x ; sudo apt update
 set +x
 
 # typical repo must haves & useful tools
-repoInstalls=("tmux" "tree")
+repoInstalls=("net-tools" "tmux" "tree")
 
 # loop through the array
 echo
