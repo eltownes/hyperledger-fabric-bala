@@ -10,4 +10,5 @@ set +x
 sudo snap install code --classic
 
 # version
+echo; echo "***** Version"
 code --version

@@ -16,7 +16,7 @@ for i in ${repoInstalls[@]}; do
 done
 
 # versions
-echo; echo "***** Versions" ; echo
+echo; echo "***** Versions"
 for i in ${repoInstalls[@]}; do
    echo; echo "***** $i"
    case $i in

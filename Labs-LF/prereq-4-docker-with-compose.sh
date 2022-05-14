@@ -26,7 +26,6 @@ set +x
 echo; echo "***** Install packages to allow repos over HTTPS"
 set -x ; sudo apt-get install \
             ca-certificates \
-            curl \
             gnupg \
             lsb-release
 set +x
@@ -44,6 +43,10 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 set +x
 
+# update repo again
+echo; echo "***** Re-Update Repo"
+sudo apt update
+
 # install docker engine
 echo; echo "***** Install docker"
 set -x
@@ -52,14 +55,6 @@ set -x
 # install a specific version
 sudo apt-get install docker-ce=$DOCKER_LTS docker-ce-cli=$DOCKER_LTS containerd.io -y
 set +x
-
-# add current user to the docker group
-echo; echo "***** Add user to docker group"
-set -x ; 
-sudo usermod -aG docker $USERNAME
-newgrp docker
-set +x
-
 
 # install docker-compose
 echo; echo "***** Install Docker Compose"
@@ -75,6 +70,13 @@ set +x
 echo; echo "***** Version"
 docker --version
 docker-compose --version
+
+# add current user to the docker group
+echo; echo "***** Add user to docker group"
+set -x ; 
+sudo usermod -aG docker $USERNAME
+newgrp docker
+set +x
 
 # hello-world
 echo; echo "Should see the Docker Hello World app w/o sudo"
