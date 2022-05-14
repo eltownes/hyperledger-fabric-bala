@@ -19,7 +19,7 @@
     - run `sudo apt install git && sudo apt install curl`
 - navigate to a desired directory from which to work
 - clone repo
-    - run `git clone https://github.com/eltownes/Labs-LF.git`
+    - run `git clone https://github.com/eltownes/hyperledger-fabric-bala.git`
 - make scripts executable
     - run `chmod +x *.sh`
 - look at scripts to see what gets installed and make changes if necessary
