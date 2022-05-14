@@ -10,7 +10,7 @@
 
 #### Setup test VM
 - Clone 'base' VM for the minifabric test environment
-- Launch this clone VM as the minifabric playground
+- Launch this clone VM as the playground
 
 ## 2 of 2 - setup the Linux environment
 
