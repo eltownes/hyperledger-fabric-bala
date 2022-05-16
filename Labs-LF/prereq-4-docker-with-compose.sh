@@ -10,15 +10,19 @@ set +x
 
 # Docker Engine LTS
 # https://docs.docker.com/release-notes/
-DOCKER_LTS="5:20.10.14~3-0~ubuntu-focal"
+DOCKER_VER="5:20.10.16~3-0~ubuntu-focal"
+#DOCKER_VER="5:20.10.16~3-0~ubuntu-jammy"
 
 # Docker Compose LTS
 # https://docs.docker.com/release-notes/
-DOCKER_COMPOSE_LTS="1.29.2"
+DOCKER_COMPOSE_VER="2.5.0~ubuntu-focal"
+#DOCKER_COMPOSE_VER="2.5.0~ubuntu-jammy"
 
 # removing any old[er] docker installs
-echo; echo "***** Remove old docker installs"
-set -x ; sudo apt-get remove docker docker-engine docker.io containerd runc
+echo; echo "***** Remove old docker & compose installs"
+set -x ; 
+sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo rm /usr/local/lib/docker/cli-plugins/docker-compose
 set +x
 
 # setup docker repo
@@ -50,26 +54,26 @@ sudo apt update
 # install docker engine
 echo; echo "***** Install docker"
 set -x
-# for the absolute latest:
-#sudo apt-get install docker-ce docker-ce-cli containerd.io -y
-# install a specific version
-sudo apt-get install docker-ce=$DOCKER_LTS docker-ce-cli=$DOCKER_LTS containerd.io -y
+# latest:
+#sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+# specific version:
+sudo apt-get install docker-ce=$DOCKER_VER docker-ce-cli=$DOCKER_VER containerd.io docker-compose-plugin
 set +x
+
 
 # install docker-compose
 echo; echo "***** Install Docker Compose"
-set -x ; sudo curl -L "https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_LTS/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+set -x ; 
+# latest:
+#sudo apt-get install docker-compose-plugin
+# specific version
+sudo apt-get install docker-compose-plugin=$DOCKER_COMPOSE_VER
 set +x
 
 # apply executable permissions to the binary
 echo; echo "***** Make executable"
 set -x ; sudo chmod +x /usr/local/bin/docker-compose
 set +x
-
-# versioning
-echo; echo "***** Version"
-docker --version
-docker-compose --version
 
 # add current user to the docker group
 echo; echo "***** Add user to docker group"
@@ -78,6 +82,12 @@ sudo usermod -aG docker $USERNAME
 newgrp docker
 set +x
 
-# hello-world
-echo; echo "Should see the Docker Hello World app w/o sudo"
-docker run hello-world
+# Installed
+echo; echo "***** Installed"
+echo "Docker: " $DOCKER_VER
+echo "Docker Compose: " $DOCKER_COMPOSE_VER
+
+# Repository
+echo; echo "***** In Repo"
+echo "Docker: " $(sudo apt-cache madison docker-ce)
+echo "Docker Compose: " $(sudo apt-cache madison docker-compose-plugin)

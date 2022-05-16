@@ -7,7 +7,7 @@ set +x
 # https://docs.python-guide.org/
 
 # install classic
-sudo apt install python
+sudo apt install python3-minimal
 
 # version
-python --version
+python3-minimal --version
