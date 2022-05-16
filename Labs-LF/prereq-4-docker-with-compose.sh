@@ -16,8 +16,6 @@ DOCKER_VER="5:20.10.16~3-0~ubuntu-focal"
 # Docker Compose LTS
 # https://docs.docker.com/release-notes/
 DOCKER_COMPOSE_VER="v2.5.0"
-#DOCKER_COMPOSE_VER="2.5.0~ubuntu-focal"
-#DOCKER_COMPOSE_VER="2.5.0~ubuntu-jammy"
 
 # 
 #DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
