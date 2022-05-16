@@ -15,17 +15,19 @@ DOCKER_VER="5:20.10.16~3-0~ubuntu-focal"
 
 # Docker Compose LTS
 # https://docs.docker.com/release-notes/
-DOCKER_COMPOSE_VER="2.5.0~ubuntu-focal"
+DOCKER_COMPOSE_VER="v2.5.0"
+#DOCKER_COMPOSE_VER="2.5.0~ubuntu-focal"
 #DOCKER_COMPOSE_VER="2.5.0~ubuntu-jammy"
 
 # 
-DOCKER_COMPOSE_CFG="/usr/local/bin"
+#DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+DOCKER_CONFIG="/usr/local/bin"
 
 # removing any old[er] docker installs
 echo; echo "***** Remove old docker & compose installs"
 set -x ; 
 sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
-sudo rm $DOCKER_COMPOSE_CFG/docker-compose
+sudo rm $DOCKER_CONFIG/docker-compose
 set +x
 
 # setup docker repo
@@ -68,12 +70,12 @@ set +x
 echo; echo "***** Install Docker Compose"
 set -x ;
 # specific version
-sudo curl -SL https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VER/docker-compose-linux-x86_64 -o $DOCKER_COMPOSE_CFG/docker-compose
+sudo curl -SL https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VER/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/docker-compose
 set +x
 
 # apply executable permissions to the binary
 echo; echo "***** Make executable"
-set -x ; sudo chmod +x $DOCKER_COMPOSE_CFG/docker-compose
+set -x ; sudo chmod +x $DOCKER_CONFIG/docker-compose
 set +x
 
 # add current user to the docker group
