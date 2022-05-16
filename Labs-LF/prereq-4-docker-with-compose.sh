@@ -18,8 +18,8 @@ DOCKER_VER="5:20.10.16~3-0~ubuntu-focal"
 DOCKER_COMPOSE_VER="2.5.0~ubuntu-focal"
 #DOCKER_COMPOSE_VER="2.5.0~ubuntu-jammy"
 
-#
-DOCKER_COMPOSE_CFG="/usr/local/lib/docker/cli-plugins"
+# 
+DOCKER_COMPOSE_CFG="/usr/local/bin"
 
 # removing any old[er] docker installs
 echo; echo "***** Remove old docker & compose installs"
@@ -61,7 +61,6 @@ set -x
 #sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 # specific version:
 sudo apt-get install docker-ce=$DOCKER_VER docker-ce-cli=$DOCKER_VER containerd.io docker-compose-plugin
-sudo rm $DOCKER_COMPOSE_CFG/docker-compose
 set +x
 
 
@@ -69,10 +68,7 @@ set +x
 echo; echo "***** Install Docker Compose"
 set -x ;
 # specific version
-#DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
-#/usr/local/lib/docker/cli-plugins
-#mkdir -p $DOCKER_CONFIG/cli-plugins
-curl -SL https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VER/docker-compose-linux-x86_64 -o $DOCKER_COMPOSE_CFG/docker-compose
+sudo curl -SL https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VER/docker-compose-linux-x86_64 -o $DOCKER_COMPOSE_CFG/docker-compose
 set +x
 
 # apply executable permissions to the binary
