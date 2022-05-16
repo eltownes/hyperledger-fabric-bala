@@ -5,7 +5,7 @@
 ### VirtualBox
 - Install [VirtualBox](https://www.virtualbox.org/)
 - Maintain a fully updated 'base' VM
-    - Ubuntu 20.04.4 LTS (Focal Fossa)
+    - Ubuntu xx.xx LTS
     - periodically run `sudo apt update && sudo apt full-upgrade -y`
 
 #### Setup test VM

@@ -14,4 +14,5 @@ echo "Docker-Compose: " $(apt-cache madison docker-compose-plugin)
 
 # hello-world
 echo; echo "Should see the Docker Hello World app w/o sudo"
+echo
 docker run hello-world
