@@ -2,9 +2,10 @@
 
 - Running containers
     - `docker ps --format "table {{.ID}}\t{{.Names}}"`
-    - too long? : `alias dct='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'`
+    - too long? : `alias ezd-table='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'`
 - Execute `ls` on the cli container
     - `docker exec cli ls`
+    - `alias ezd-exec='docker exec cli'`
 - Pull out stuff from cli container and into the 'pulled' dir
     - create pulled: `mkdir ~/Desktop/pulled`
     - set cliPath: `cliPath=$(docker exec cli pwd)`

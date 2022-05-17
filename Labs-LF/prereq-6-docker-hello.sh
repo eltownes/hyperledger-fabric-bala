@@ -1,12 +1,15 @@
 #!/bin/bash
 
+# update database
+set -x ; sudo apt update
+set +x
+
 # versioning
-echo; echo "***** Version"
+echo; echo "***** Installed Versions"
 docker --version
 docker-compose --version
 
 # Repository
-sudo apt update
 echo; echo "***** Repo Versions"
 echo "Docker: " $(apt-cache madison docker-ce)
 echo

@@ -76,19 +76,12 @@ echo; echo "***** Make executable"
 set -x ; sudo chmod +x $DOCKER_CONFIG/docker-compose
 set +x
 
+# Reboot
+echo; echo "Reboot after user added to docker group"
+
 # add current user to the docker group
 echo; echo "***** Add user to docker group"
 set -x ; 
 sudo usermod -aG docker $USERNAME
 newgrp docker
 set +x
-
-# Installed
-echo; echo "***** Installed"
-echo "Docker: " $DOCKER_VER
-echo "Docker Compose: " $DOCKER_COMPOSE_VER
-
-# Repository
-echo; echo "***** In Repo"
-echo "Docker: " $(sudo apt-cache madison docker-ce)
-echo "Docker Compose: " $(sudo apt-cache madison docker-compose-plugin)
