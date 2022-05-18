@@ -37,6 +37,7 @@ function copyDockerDirectory(){
 
     for i do
         case $i in
+        
             *"ca"*)
                 echo "# Copying "$i
                 docker cp $i:/etc/hyperledger $caDir/etc/hyperledger/$i
