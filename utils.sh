@@ -1,11 +1,23 @@
 #!/bin/bash
 
-function aliasCreate(){
+function uf-alias(){
     #
-    alias u-dt='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
+    alias ua-doctbl='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
 }
 
-function copyDockerDirectory(){
+function uf-cronSave(){
+    
+    # https://www.baeldung.com/linux/pipe-output-to-function
+
+    mainDir="$HOME/Desktop/Containers-Info/"$(date '+%y-%m-%d-%H:%M:%S-?')
+    mkdir $mainDir
+
+    #
+    cat > $mainDir/data.txt
+
+}
+
+function uf-copyDockerDirectory(){
 
     #
     if [[ $# -eq 0 ]]; then
@@ -18,7 +30,7 @@ function copyDockerDirectory(){
         return 1
     fi
 
-    mainDir="$HOME/Desktop/Containers-Info/"$(date '+%y-%m-%d--%H:%M:%S')
+    mainDir="$HOME/Desktop/Containers-Info/"$(date '+%y-%m-%d-%H:%M:%S--?')
 
     #
     caDir="$mainDir/ca"
