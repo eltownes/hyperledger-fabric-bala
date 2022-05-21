@@ -20,6 +20,7 @@
 - navigate to a desired directory from which to work
 - clone repo
     - run `git clone https://github.com/eltownes/hyperledger-fabric-bala.git`
+- change to `CA-Deployment` directory
 - make scripts executable
     - run `chmod +x *.sh`
 - look at scripts to see what gets installed and make changes if necessary
