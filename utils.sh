@@ -1,23 +1,43 @@
 #!/bin/bash
 
-function uf-alias(){
-    #
-    alias ua-doctbl='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
-}
+# ua-[name] --> util alias - [name]
+# uf-[name] --> util function - [name]
 
-function uf-cronSave(){
+# 
+mainDir="$HOME/Desktop/Env-Info"
+mkdir -p $mainDir
+
+function createUniqueValidDirName(){
+
+    if [[ $# -eq 0 ]]; then
+        title="?"
+    else
+        arg=$*
+        title="${arg// /-}"
+    fi
     
-    # https://www.baeldung.com/linux/pipe-output-to-function
-
-    mainDir="$HOME/Desktop/Containers-Info/"$(date '+%y-%m-%d-%H:%M:%S-?')
-    mkdir $mainDir
-
-    #
-    cat > $mainDir/data.txt
+    echo $(date '+%y-%m-%d-%H:%M:%S')"-$title"
 
 }
 
-function uf-copyDockerDirectory(){
+function util-f-alias(){
+    #
+    alias util-a-doctbl='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
+}
+
+function util-f-cronSave(){
+    # https://www.baeldung.com/linux/pipe-output-to-function
+        
+    # make directory
+    dirName="$(createUniqueValidDirName $1)"
+    newDir=$mainDir/"$dirName"
+    mkdir $newDir
+
+    # add output to file
+    cat > $newDir/data.txt
+}
+
+function util-f-copyDockerDirectory(){
 
     #
     if [[ $# -eq 0 ]]; then
@@ -30,7 +50,10 @@ function uf-copyDockerDirectory(){
         return 1
     fi
 
-    mainDir="$HOME/Desktop/Containers-Info/"$(date '+%y-%m-%d-%H:%M:%S--?')
+    # make directory
+    dirName="$(createUniqueValidDirName $1)"
+    newDir=$mainDir/"$dirName"
+    mkdir $newDir
 
     #
     caDir="$mainDir/ca"
