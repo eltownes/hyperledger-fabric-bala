@@ -2,7 +2,7 @@
 
 ## Getting started with Hyperledger Fabric administration
 
-### What's bala?
+### What's / Who's bala?
 
 ![fabric-bala image](fabric-bala.jpg)
 
